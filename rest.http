@@ -1,0 +1,217 @@
+### GET all Users
+GET http://localhost:3001/api/users/
+
+### verifying token
+GET http://localhost:3001/api/users/checkauthentication
+
+### checking verifying user 
+GET http://localhost:3001/api/users/checkuser/63aa664822b79a6dae81f600
+
+### checking verify admin
+GET http://localhost:3001/api/users/checkadmin
+
+### GEt User By Id
+GET http://localhost:3001/api/users/63aa664822b79a6dae81f600 
+
+### user Registration
+POST http://localhost:3001/api/users/  HTTP/1.1
+content-type: application/json
+
+{
+    "first_name": "Pradeep",
+    "last_name": "Bhosle",
+    "username":"pradeepb11",
+    "email":"pradeep@gmail.com",
+    "phone":"9967544174",
+    "password":"admin@123",
+    "status":1
+
+}
+
+
+### update user
+PUT http://localhost:3001/api/users/63aa664822b79a6dae81f600
+Content-Type: application/json
+
+{
+   "first_name": "Neha",
+    "last_name": "Bhosle",
+    "username":"nehab24",
+    "email":"neha@gmail.com",
+    "phone":"9930394558",
+    "password":"admin@123",
+    "status":1
+
+}
+
+
+
+### Send Email validate activation code
+PATCH http://localhost:3001/api/users/activate
+Content-Type: application/json
+
+ {
+     "email":"pradeep@gmail.com",
+    "code":822684
+}
+
+### user Login 
+POST http://localhost:3001/api/users/login
+Content-Type: application/json
+
+ {
+     "email":"pradeep@gmail.com",
+     "password":"admin@123"
+}
+
+
+
+### Forgot Password
+PATCH http://localhost:3001/api/users/forgotPassword
+Content-Type: application/json
+
+{
+    "email":"neha@gmail.com"
+}
+
+### Reset Password
+PATCH http://localhost:3001/api/users/resetPassword
+Content-Type: application/json
+
+{
+    "newPassword":"kevu@123",
+    "confirmPassword":"kevu@123",
+    "resetPasswordToken":501196
+}
+
+############################################################################################################
+### Hotel
+
+
+
+### create a new Hotel
+POST http://localhost:3001/api/hotels  HTTP/1.1
+Content-Type: application/json
+
+{
+    "name":"New Hotel Pradeep",
+    "type":"hotel",
+    "city":"Mumbai",
+    "address":"Malad East, near Adani Electricity ",
+    "distance":"500",
+    "title":"Best Hotel In this City",
+    "desc":"Hotel decription",
+    "cheapestPrice":1000 
+    
+}
+
+### update Hotel
+PUT http://localhost:3001/api/hotels/63afee726bb0d087e5a9841e HTTP/1.1
+Content-Type: application/json
+
+{
+    "name":"New Hotel Neha",
+    "type":"hotel",
+    "city":"Mumbai Malad",
+    "address":"Malad East, near Adani Electricity ",
+    "distance":"500",
+    "title":"Best Hotel In this City",
+    "desc":"Hotel decription",
+    "cheapestPrice":1500 
+}
+
+### delete Hotel
+DELETE http://localhost:3001/api/hotels/63afee726bb0d087e5a9841e
+
+### get hotel by id
+GET http://localhost:3001/api/hotels/63b00a4fd52a11ba6e794caa
+
+### Get Hotels
+GET http://localhost:3001/api/hotels
+
+
+###############################################################################################
+# Department
+###############################################################################################
+//create a new department
+POST http://localhost:3001/api/department
+Content-Type: application/json
+
+{
+    "depcode":50,
+    "depname":"ADMIN",
+    "location":"BIRMINGHAM"
+}
+
+###
+// get all Deparments
+GET http://localhost:3001/api/department
+
+###
+// get by id Deparment
+GET  http://localhost:3001/api/department/63bee994e73d98c6acaffd5b
+
+###
+// update the Deparment
+PUT http://localhost:3001/api/department/63bee9d7e73d98c6acaffd63
+Content-Type: application/json
+
+{
+   
+    "depname":"ADMIN",
+    "location":"INDIA"
+}
+
+### 
+// delete a Deparment
+DELETE  http://localhost:3001/api/department/63bee9d7e73d98c6acaffd63
+
+
+###############################################################################################################################
+#############################  Employees ################################
+
+// create a new employee
+POST http://localhost:3001/api/employees
+Content-Type: application/json
+
+{
+    "empcode":9566,
+    "empf_name":"KIM",
+    "empl_name":"JARVIS",
+    "job":"MANAGER",
+    "manager":7839,
+    "hiredate":"1981-04-02",
+    "salary":3570,
+    "commission":0,
+    "deptcode":20
+}
+
+###
+// update a employee
+PUT http://localhost:3001/api/employees/63bf93b7e41a24b06a6c80c6
+Content-Type: application/json
+
+{
+    "empcode":9369,
+    "empf_name":"TONY",
+    "empl_name":"STARK",
+    "job":"SOFTWARE ENGINEER",
+    "manager":7902,
+    "hiredate":"1980-12-17",
+    "salary":2800,
+    "commission":0,
+    "deptcode":20
+}
+
+###
+// get all employee
+GET  http://localhost:3001/api/employees
+Content-Type: application/json
+
+###
+// get employee by id
+GET  http://localhost:3001/api/employees/63bf92d4e41a24b06a6c80c2
+
+###
+// delete employee
+DELETE  http://localhost:3001/api/employees/63bf92d4e41a24b06a6c80c2
